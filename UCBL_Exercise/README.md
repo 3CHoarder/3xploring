@@ -12,7 +12,7 @@ The application definitely needs refactoring to make it more readable, testable,
 This exercise uses Java 8 and expects that the system will have its JAVA_HOME environment variable set. It includes a Maven wrapper, 
 so you do not need to have Maven installed on your system to run it:
 1. on command line prompt, move to the application directory.
-2. a. on Unix/Linx environment, run "start"
+2. a. on Unix/Linx environment, run "start"<br/>
    b. on Windows environment, run "mvnw clean spring-boot:run"
 
 
