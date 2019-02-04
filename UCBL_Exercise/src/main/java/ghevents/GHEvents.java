@@ -26,7 +26,7 @@ public class GHEvents {
 
 	@CrossOrigin
 	@RequestMapping(value = "/ghevents", method = RequestMethod.GET, produces = "application/json")
-	public List<UserEvents.Event> getEvents(@RequestParam(value = "user", required = true) String user, Model model) {
+	public List<UserEvents.Event> getEvents(@RequestParam(value = "user", required = true) String user) {
 		String ghuserEvtUrl = String.format("https://api.github.com/users/%s/events/public", user);
 	   
 		String line;
@@ -48,7 +48,6 @@ public class GHEvents {
 	    UserEvents uevts = new UserEvents(user);
         JsonFactory factory = new JsonFactory();
         
-        model.addAttribute("user", user);
         try {
 			JsonParser  parser  = factory.createParser(sb.toString());
 			String type = null, created_at = null;
@@ -70,9 +69,8 @@ public class GHEvents {
 					}
 				}
 			}
-			model.addAttribute("events", uevts.getEvents());
         } catch (IOException ex) {
-        	model.addAttribute("events", null);
+        	
         }
 	  
 	    return uevts.getEvents();
