@@ -12,7 +12,7 @@ function buildTableHeader(table) {
 // Builds the HTML Table out of web service return.
 function buildHtmlTable(login, table) {
 	$.ajax ({
-		url :'http://localhost:8080/ghevents',
+		url :'/ghevents',
 		data: {  user : login.value },
 		type:'GET',
 		datatype: 'json',
